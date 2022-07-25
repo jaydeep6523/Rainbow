@@ -121,136 +121,116 @@ class SetupDateScreen extends StatelessWidget {
               Container(
                 width: Get.width,
                 height: 308,
+                padding: EdgeInsets.only(bottom: 5),
                 decoration: const BoxDecoration(
                   color: ColorRes.white,
                   borderRadius: BorderRadius.all(
                     Radius.circular(12),
                   ),
                 ),
-                child: Expanded(
-                  child: GetBuilder<SetupDateController>(
-                    id: 'range',
-                    builder: (controller) => TableCalendar(
-                      calendarBuilders: CalendarBuilders(),
-                      shouldFillViewport: true,
-                      firstDay: DateTime(
-                        2022,
-                        DateTime.now().month,
-                      ),
-                      lastDay: DateTime(2050),
-                      onFormatChanged: (CalendarFormat ca) {
-                        CalendarFormat.month;
-                      },
-                      availableCalendarFormats: const {
-                        CalendarFormat.month: 'Month',
-                        CalendarFormat.twoWeeks: '2 weeks',
-                        CalendarFormat.week: 'Week'
-                      },
-                      focusedDay: DateTime.now(),
-                      calendarStyle: CalendarStyle(
-                        isTodayHighlighted: false,
-                        rangeHighlightColor: ColorRes.color_F4F4F4,
-                        todayTextStyle: gilroyBoldTextStyle(fontSize: 11.43),
-                        weekendTextStyle: gilroyMediumTextStyle(
-                            fontSize: 11.43, color: ColorRes.color_27354C),
-                        outsideTextStyle: gilroyMediumTextStyle(
-                          fontSize: 11.43,
-                          color: ColorRes.color_27354C.withOpacity(0.4),
-                        ),
-
-                        defaultTextStyle: gilroyMediumTextStyle(
-                            fontSize: 11.43, color: ColorRes.color_27354C),
-                        rangeEndTextStyle:
-                            const TextStyle(fontSize: 15, color: Colors.white),
-                        disabledTextStyle: gilroyMediumTextStyle(
-                          fontSize: 11.43,
-                          color: ColorRes.color_27354C.withOpacity(0.4),
-                        ),
-                        selectedDecoration: BoxDecoration(
-                          color: ColorRes.black,
-                          border: Border.all(
-                              color: ColorRes.color_FCE307, width: 1.46),
-                        ),
-                        // selectedTextStyle:
-                        //     TextStyle(fontSize: 15, color: Colors.purple),
-
-                        rangeEndDecoration: BoxDecoration(
-                          color: ColorRes.color_50369C,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: ColorRes.color_FCE307, width: 1.5),
-                        ),
-                        rangeStartDecoration: BoxDecoration(
-                          color: ColorRes.color_50369C,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: ColorRes.color_FCE307, width: 1.5),
-                        ),
-                        withinRangeTextStyle: gilroyMediumTextStyle(
-                            fontSize: 11.43, color: ColorRes.color_27354C),
-                      ),
-                      rangeStartDay: controller.startTime,
-                      onRangeSelected: (start, end, as) {
-                        controller.rangSelect(start, end, as);
-                        print(
-                            "<<<<<<<<<<<<<<<<<<<<<<<<<<<<  starn<$start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                        print(
-                            "<<<<<<<<<<<<<<<<<<<<<<<<<<End <<<$end>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                        print(
-                            "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<$as>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                      },
-                      rangeEndDay: controller.endtime,
-                      rangeSelectionMode: RangeSelectionMode.toggledOn,
-                      headerStyle: HeaderStyle(
-                        titleTextStyle: TextStyle(fontSize: 0),
-                        leftChevronVisible: false,
-                        rightChevronVisible: true,
-                        rightChevronIcon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: ColorRes.black,
-                        ),
-                        rightChevronPadding: const EdgeInsets.only(
-                          right: 175,
-                        ),
-                        //// Moth Show
-                        formatButtonVisible: true,
-                        formatButtonTextStyle: gilroySemiBoldTextStyle(
-                          fontSize: 11.94,
-                          color: ColorRes.black,
-                        ),
-                        formatButtonShowsNext: false,
-                        formatButtonDecoration: const BoxDecoration(),
-                        titleCentered: true,
-                        formatButtonPadding: EdgeInsets.only(left: 1),
-
-                        // titleCentered: false,
-
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12),
-                          ),
-                        ),
-
-                        // rightChevronIcon: Icon(
-                        //   Icons.chevron_right,
-                        //   size: 16,
-                        //   color: Colors.pink,
-                        // ),
-                        // leftChevronIcon: Icon(
-                        //   Icons.chevron_left,
-                        //   size: 16,
-                        //   color: Colors.blue,
-                        // ),
-                      ),
-                      daysOfWeekStyle: DaysOfWeekStyle(
-                        weekdayStyle: gilroyBoldTextStyle(
-                            fontSize: 11.43, color: ColorRes.color_50369C),
-                      ),
-                      weekendDays: [],
-                      calendarFormat: CalendarFormat.month,
-                      startingDayOfWeek: StartingDayOfWeek.monday,
+                child: GetBuilder<SetupDateController>(
+                  id: 'range',
+                  builder: (controller) => TableCalendar(
+                    calendarBuilders: const CalendarBuilders(),
+                    shouldFillViewport: true,
+                    firstDay: DateTime(
+                      2022,
+                      DateTime.now().month,
                     ),
+                    lastDay: DateTime(2050),
+                    onFormatChanged: (CalendarFormat ca) {
+                      CalendarFormat.month;
+                    },
+                    availableCalendarFormats: const {
+                      CalendarFormat.month: 'Month',
+                      CalendarFormat.twoWeeks: '2 weeks',
+                      CalendarFormat.week: 'Week'
+                    },
+                    focusedDay: DateTime.now(),
+                    calendarStyle: CalendarStyle(
+                      isTodayHighlighted: false,
+                      rangeHighlightColor: ColorRes.color_F4F4F4,
+                      todayTextStyle: gilroyBoldTextStyle(fontSize: 11.43),
+                      weekendTextStyle: gilroyMediumTextStyle(
+                          fontSize: 11.43, color: ColorRes.color_27354C),
+                      outsideTextStyle: gilroyMediumTextStyle(
+                        fontSize: 11.43,
+                        color: ColorRes.color_27354C.withOpacity(0.4),
+                      ),
+
+                      defaultTextStyle: gilroyMediumTextStyle(
+                          fontSize: 11.43, color: ColorRes.color_27354C),
+                      rangeEndTextStyle:
+                          const TextStyle(fontSize: 15, color: Colors.white),
+                      disabledTextStyle: gilroyMediumTextStyle(
+                        fontSize: 11.43,
+                        color: ColorRes.color_27354C.withOpacity(0.4),
+                      ),
+                      selectedDecoration: BoxDecoration(
+                        color: ColorRes.black,
+                        border: Border.all(
+                            color: ColorRes.color_FCE307, width: 1.46),
+                      ),
+                      // selectedTextStyle:
+                      //     TextStyle(fontSize: 15, color: Colors.purple),
+
+                      rangeEndDecoration: BoxDecoration(
+                        color: ColorRes.color_50369C,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: ColorRes.color_FCE307, width: 1.5),
+                      ),
+                      rangeStartDecoration: BoxDecoration(
+                        color: ColorRes.color_50369C,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: ColorRes.color_FCE307, width: 1.5),
+                      ),
+                      withinRangeTextStyle: gilroyMediumTextStyle(
+                          fontSize: 11.43, color: ColorRes.color_27354C),
+                    ),
+                    rangeStartDay: controller.startTime,
+                    onRangeSelected: (start, end, as) {
+                      controller.rangSelect(start, end, as);
+                      print(
+                          "<<<<<<<<<<<<<<<<<<<<<<<<<<<<  starn<$start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                      print(
+                          "<<<<<<<<<<<<<<<<<<<<<<<<<<End <<<$end>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                      print(
+                          "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<$as>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                    },
+                    rangeEndDay: controller.endtime,
+                    rangeSelectionMode: RangeSelectionMode.toggledOn,
+                    headerStyle: HeaderStyle(
+                      titleTextStyle: gilroyBoldTextStyle(
+                          fontSize: 11.43, color: ColorRes.black),
+                      leftChevronVisible: true,
+                      rightChevronVisible: true,
+                      formatButtonVisible: false,
+                      titleCentered: false,
+                      leftChevronIcon: Icon(
+                        Icons.chevron_left,
+                        color: ColorRes.black.withOpacity(0.5),
+                      ),
+                      rightChevronIcon: Icon(
+                        Icons.chevron_right,
+                        color: ColorRes.black.withOpacity(0.5),
+                      ),
+                      rightChevronMargin: EdgeInsets.only(right: Get.width*0.30),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12),
+                        ),
+                      ),
+                    ),
+                    daysOfWeekStyle: DaysOfWeekStyle(
+                      weekdayStyle: gilroyBoldTextStyle(
+                          fontSize: 11.43, color: ColorRes.color_50369C),
+                    ),
+                    calendarFormat: CalendarFormat.month,
+
+                    startingDayOfWeek: StartingDayOfWeek.monday,
                   ),
                 ),
                 // SfDateRangePicker(

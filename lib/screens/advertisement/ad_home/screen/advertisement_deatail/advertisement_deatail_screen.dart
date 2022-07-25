@@ -38,8 +38,11 @@ class AdvertisementDeatailScreen extends StatelessWidget {
             children: [
               top(),
               Expanded(
-                  child: SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(), child: bottom())),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: bottom(),
+                ),
+              ),
             ],
           ),
         ),
@@ -194,12 +197,12 @@ class AdvertisementDeatailScreen extends StatelessWidget {
                     image: AssetImage(
                       AssetRes.adsDetail,
                     ),
-                    fit: BoxFit.fill)
+                    fit: BoxFit.cover)
                 : DecorationImage(
                     image: FileImage(
                       File(createAdvertisementController.imagePath!.path),
                     ),
-                    fit: BoxFit.fill),
+                    fit: BoxFit.cover),
           ),
           child: Column(
             children: [
